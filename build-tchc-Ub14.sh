@@ -47,6 +47,7 @@ build_chc_wallet() {
 	message "Berkly Database Installed"
 
 
+
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
 	cd ChainCoin
@@ -54,26 +55,48 @@ build_chc_wallet() {
 	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 	make clean
 	make install
-  message "ChainCoin has been installed installed"
-	#message "Downlad and instll Centinel"
-	#sudo apt-get update
-	#sudo apt-get -y install python-virtualenv -y
-	#sudo apt install virtualenv -y
-	#cd ChainCoin
-	#git clone https://github.com/chaincoin/sentinel.git && cd sentinel
-	#virtualenv ./venv
-	#./venv/bin/pip install -r requirements.txt
+  cd ~
+	mkdir .chaincoincore
+	touch chaincoin.conf
+  echo "daemon=1" >> chaincoin.conf
+	echo "listen=1" >> chaincoin.conf
+	echo "server=1" >> chahicoin.conf
+	echo "testnet=1" >> chaincoin.conf
+	echo "server=1" >> chaincoin.conf
+	echo "listen=1" >> chaincoin.conf
+	echo "debug=1" >> chaincoin.conf
+	echo "prematurewitness=1" >> chaincoin.conf
+	echo "rpcuser=123" >> chaincoin.conf
+	echo "rpcpassword=123" >> chaincoin.conf
+	echo "rpcport=21995" >> chaincoin.conf
+	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
+  echo "addnode=140.82.42.182" >> chaincoin.conf
+	echo "addnode=207.246.88.75" >> chaincoin.conf
+	message "chaincoin has been built"
+
+  message "Downlad and installing the Sentinel"
+	sudo apt-get update
+	sudo apt-get -y install python-virtualenv
+  cd ~
+	cd ChainCoin
+	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
+	virtualenv ./venv
+	./venv/bin/pip install -r requirements.txt
 
 
-	#sudo echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> /tmp/crontab.SWy3wG/crontab
-	#* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
-	###verify the test
-	#/root/ChainCoin/sentinel/venv/bin/py.test ./test
-	###configure the sentinels
-	##chaincoin_conf=/path/to/chaincoin.conf
-	###run the debug
-	#SENTINEL_DEBUG=1 ./venv/bin/python bin/sentinel.py
+	message "Configuring Sentinel"
+	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
+	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
+	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 
+
+  #TODO find out how to do put this line in crontab -e because I dont know if this will work right
+  crontab -l > mycron
+  echo "* * * * * cd /home/YOURUSERNAME/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
+  crontab mycron
+  rm mycron
+
+  chaincoind
 }
 
 
