@@ -17,7 +17,8 @@ message() {
 build_chc_wallet() {
 
 	message "Installing pri-dependencies..."
-	sudo apt-get git
+	sudo apt-get update
+	sudo apt-get install git
 	sudo apt-get install build-essential -y
 	sudo apt-get install libtool -y
 	sudo apt-get install autotools-dev -y
@@ -60,7 +61,7 @@ build_chc_wallet() {
 	touch chaincoin.conf
   	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
-	echo "server=1" >> chaicoin.conf
+	echo "server=1" >> chaincoin.conf
 	echo "testnet=1" >> chaincoin.conf
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
