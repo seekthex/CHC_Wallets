@@ -96,7 +96,6 @@ build_chc_wallet() {
   crontab mycron
   rm mycron
 
-  chaincoind
 }
 
 
