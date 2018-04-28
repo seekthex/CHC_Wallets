@@ -69,10 +69,9 @@ build_chc_wallet() {
 	echo "rpcport=21995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
   	echo "addnode=140.82.42.182" >> chaincoin.conf
-	echo "addnode=207.246.88.75" >> chaincoin.conf
 	message "chaincoin has been built and configured"
 
-  	message "Downlad and installing the Sentinel"
+  	message "Download and install the Sentinel..."
 	sudo apt-get update
 	sudo apt-get -y install python-virtualenv
 	sudo apt install virtualenv -y
@@ -89,7 +88,8 @@ build_chc_wallet() {
 	crontab mycron
   	rm mycron
   	message "Sentinel has beein installed and configured"
-  	message "launching Chaincoin"
+	
+  	message "Launching Chaincoin"
 	chaincoind
 }
 
