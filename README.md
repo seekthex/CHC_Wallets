@@ -1,9 +1,9 @@
 ---------
 Server setup scripts
 ---------
-Version: 0.0.0.2
+Version: 0.0.0.5
 
-This is a collection shell scripts to assist in creating CHC testnet wallets 
+This is a collection shell scripts to assist in creating CHC testnet wallets
 
 Experimental scripts, use at your own risk!!!
 
@@ -20,7 +20,7 @@ Tested Systems:
 --------------
 build-chc-Ub14.sh  
 --------------
-Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 14.04 with sentinel 
+Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 14.04 with sentinel
 
 Usage:
 
