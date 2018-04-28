@@ -1,5 +1,5 @@
 ---------
-Server setup scripts
+Create CHC Testnet Wallet
 ---------
 Version: 0.0.0.1
 
