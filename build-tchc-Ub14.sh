@@ -54,11 +54,11 @@ build_chc_wallet() {
 	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 	make clean
 	make install
-  cd ~
+	cd ~
 	mkdir .chaincoincore
 	cd .chaincoincore
 	touch chaincoin.conf
-  echo "daemon=1" >> chaincoin.conf
+  	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaicoin.conf
 	echo "testnet=1" >> chaincoin.conf
@@ -68,14 +68,15 @@ build_chc_wallet() {
 	echo "rpcpassword=123" >> chaincoin.conf
 	echo "rpcport=21995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-  echo "addnode=140.82.42.182" >> chaincoin.conf
+  	echo "addnode=140.82.42.182" >> chaincoin.conf
 	echo "addnode=207.246.88.75" >> chaincoin.conf
 	message "chaincoin has been built and configured"
 
-  message "Downlad and installing the Sentinel"
+  	message "Downlad and installing the Sentinel"
 	sudo apt-get update
 	sudo apt-get -y install python-virtualenv
-  cd ~
+	sudo apt install virtualenv -y
+  	cd ~
 	cd ChainCoin
 	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
 	virtualenv ./venv
@@ -83,12 +84,12 @@ build_chc_wallet() {
 	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
 	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
-  echo "* * * * * cd /root/Chaincoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
-  crontab -l >> mycron
+	crontab -l >> mycron
+	echo "* * * * * cd /root/Chaincoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
 	crontab mycron
-  rm mycron
-  message "Sentinel has beein installed and configured"
-  message "launching Chaincoin"
+  	rm mycron
+  	message "Sentinel has beein installed and configured"
+  	message "launching Chaincoin"
 	chaincoind
 }
 
