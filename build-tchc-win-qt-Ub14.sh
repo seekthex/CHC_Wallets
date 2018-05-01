@@ -22,10 +22,24 @@ installgeneraldependencies(){
 
 	# General
 	sudo apt update -y
-	sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils python3 git -y
+	sudo apt-get install build-essential -y
+	sudo apt-get install libtool -y
+	sudo apt-get install autotools-dev -y
+	sudo apt-get install automake -y
+	sudo apt-get install pkg-config -y
+	sudo apt-get install libssl-dev -y
+	sudo apt-get install libevent-dev -y
+	sudo apt-get install bsdmainutils -y
+  sudo apt-get install git -y
+	sudo apt-get install python3 -y
 
 	# Boost C macros - Bitcoin core trying to remove this
-	sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y
+	sudo apt-get install libboost-filesystem-dev -y
+	sudo apt-get install libboost-system-dev -y
+	sudo apt-get install libboost-chrono-dev -y
+	sudo apt-get install libboost-program-options-dev -y
+	sudo apt-get install libboost-test-dev -y
+	sudo apt-get install libboost-thread-dev -y
 
 	# Berkeley Db - Some duplication - script is used later
 	sudo apt-get install software-properties-common -y
@@ -53,8 +67,14 @@ installmorestuff() {
 	# General dependencies
 	sudo apt update -y
 	sudo apt upgrade -y
-	sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git -y
-
+  sudo apt install build-essential -y #duplicate
+	sudo apt install libtool -y #duplicate
+	sudo apt install autotools-dev -y #duplicate
+	sudo apt install automake -y #duplicate
+	sudo apt install pkg-config -y #think I forgot this
+	sudo apt install bsdmainutils  git -y
+	sudo apt install curl -y #do I need this
+	sudo apt install git -y #should alreay have this
 	# cross compilation toolchain
 	sudo apt install g++-mingw-w64-x86-64 -y
 }
@@ -84,7 +104,7 @@ makewindows() {
 	CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-tests
 
 	sudo make
-
+  cp src/qt/res/icons/chaincoin.ico src/qt/res/icons/bitcoin.ico
 	sudo make install
 }
 
