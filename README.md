@@ -20,7 +20,7 @@ Tested Systems:
 -Ubuntu 16.04
 
 --------------
-build-chc-Ub14.sh  
+build-chc-Ub16.sh  
 --------------
 
 Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 16.04 with sentinel and pre-configured
@@ -47,7 +47,7 @@ Setup Swap File
 
 To install Chaincoin -cli wallet with Sentinel
 
-  curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/build-tchc-Ub14.sh | bash
+  curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/build-tchc-Ub16.sh | bash
 
 **********
 
