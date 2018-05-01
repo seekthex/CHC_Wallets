@@ -1,6 +1,7 @@
----------
+
 Create CHC Testnet Wallet
----------
+=============
+
 Version: 0.0.0.1
 
 This is a collection shell scripts to assist in creating CHC testnet wallet(s)
