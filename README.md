@@ -9,17 +9,17 @@ Highly suggested to start on clean installation of Ubuntu
 
 Experimental scripts, use at your own risk!!!
 
----------
+
 Supported OS
 ---------
 -Ubuntu
 
----------------
+
 Tested Systems:
 ---------------
 -Ubuntu 16.04
 
---------------
+
 build-chc-Ub16.sh  
 --------------
 
@@ -31,6 +31,7 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
 
 Setup firewall
+--------------
 
   (optional) If you would  like to setup firewall to allow OpenSSH, port 11994 and 21995
 
@@ -41,6 +42,7 @@ Setup firewall
 
 
 Setup Swap File
+--------------
 
   (Recommend) if you would need to create a 1 gig permanent swap filesystem
 
@@ -55,6 +57,7 @@ Setup Swap File
 
 
 To install Chaincoin -cli wallet with Sentinel
+--------------
 
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/build-tchc-Ub16.sh | bash
 
