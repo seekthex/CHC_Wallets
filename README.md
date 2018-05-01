@@ -37,12 +37,21 @@ Setup firewall
   Note: firewall will not become enabled until you reboot the Server
 
   curl https://raw.githubusercontent.com/seekthex/Server_Setup_Scripts/master/install-firewall.sh | bash
+  
+
 
 Setup Swap File
 
-  (Recommend) if you would like to create a 1 gig permanent swap filesystem
+  (Recommend) if you would need to create a 1 gig permanent swap filesystem
 
   curl https://raw.githubusercontent.com/seekthex/Server_Setup_Scripts/master/install-1-swap-p.sh | bash
+
+  Note: if you are running a smaller VPS such as a Vultr 512 MB server you will need to install a 2 Gig Swap
+        during the inital compilie of chaincoin. however to run chaincoind you will only need a 1 Gig Swap file
+        on the 512 MB server.
+        You can find more swap file building scripts here.
+        https://github.com/seekthex/server_setup_scripts/blob/master/README.md
+        
 
 
 To install Chaincoin -cli wallet with Sentinel
