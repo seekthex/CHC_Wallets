@@ -1,10 +1,11 @@
 #!/bin/sh
-#Version 0.0.0.s
-#Info: Installs Chaincoind daemon
+#Version 0.0.0.1
+#Info: Create Chaincoin-qt.exe
 #Chaincoin Testnet Version 0.16.x
 #Testing OS: Ubuntu 14.04
-#TODO: not testested
-#TODO: massive cleanup
+#Note Only works with Ubuntu 14.04
+#TODO: testing...
+#TODO: ask community for improvement
 
 message() {
 
@@ -14,7 +15,7 @@ message() {
 }
 
 
-installgeneraldependencies(){
+installdepends(){
 
 	message "installing dependencies"
 
@@ -93,14 +94,12 @@ makechaincoinqt() {
 	sudo make install
 }
 
-
-
 install() {
-	installgeneraldependencies
+	installdepends
 	makechaincoin
 	makechaincoinqt
   message "Your ChainCoin QT wallet is ready"
-  message "ChainCoin/"
+  message "It is located at ChainCoin/src/qt/chaincoin-qt.exe"
 }
 
 #main
