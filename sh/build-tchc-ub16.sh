@@ -90,7 +90,7 @@ build_chc_wallet() {
 	rm mycron
 	message "Sentinel has beein installed and configured"
 
-  message "Launching Chaincoin"
+	message "Launching Chaincoin"
 	chaincoind
 }
 

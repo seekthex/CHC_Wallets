@@ -58,7 +58,7 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 ### To install Chaincoin -cli wallet with Sentinel
 
 
-  curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/sh/build-tchc-Ub16.sh | bash
+  curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/build-tchc-Ub16.sh | bash
 
 **********
 
