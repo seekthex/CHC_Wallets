@@ -1,12 +1,12 @@
 
-Create CHC Testnet Wallet
+Create Chaincoin-qt.exe Testnet Wallet
 =============
 
 Version: 0.0.0.1
 
 This is a shell script to assist in creating Chaincoin-qt.exe
 
-Highly suggested to start on clean installation of Ubuntu
+Start on clean installation of Ubuntu 14.04
 
 Experimental scripts, use at your own risk!!!
 
@@ -16,10 +16,10 @@ Experimental scripts, use at your own risk!!!
 
 
 ### Tested Systems:
--Ubuntu 14.04
+-Ubuntu 14.04 on Vultr 1024MB server
 
 
-build-chc-Ub16.sh  
+build-tchc-win-qt-ub14.sh  
 --------------
 
 Description: Creates a Chaincoin-qt.exe testnet wallet on Ubuntu 14.04
