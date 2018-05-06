@@ -98,8 +98,8 @@ install() {
 	installdepends
 	makechaincoin
 	makechaincoinqt
-  message "Your ChainCoin QT wallet is ready"
-  message "It is located at ChainCoin/src/qt/chaincoin-qt.exe"
+  message "Your Chaincoin QT wallet is ready"
+  message "Location:  ~/ChainCoin/src/qt/chaincoin-qt.exe"
 }
 
 #main

@@ -33,9 +33,9 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
 
   if you are running a smaller VPS such as a Vultr 512 MB or 1024 MB server you will need to install a 2 Gig Swap
-  during the inital compilie of chaincoin.
+  during the initial compile of Chaincoin-qt.exe.
 
-  To create a 2 Gig Tempary swap
+  To create a 2 Gig Temporary swap
 
   curl https://raw.githubusercontent.com/seekthex/Server_Setup_Scripts/master/install-2-swap.sh | bash
 
@@ -47,6 +47,34 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
 
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/sh/build-tchc-win-qt-ub14.sh | bash
+
+
+  Options used to compile and link:
+    with wallet   = yes
+    with gui / qt = yes
+      qt version  = 5
+      with qr     = yes
+    with zmq      = yes
+    with test     = no
+    with bench    = yes
+    with upnp     = yes
+    use asm       = yes
+    debug enabled = no
+    werror        = no
+
+    target os     = windows
+    build os      =
+
+    CC            = /root/ChainCoin/depends/x86_64-w64-mingw32/share/../native/bin/ccache x86_64-w64-mingw32-gcc
+    CFLAGS        = -pipe -O2
+    CPPFLAGS      = -I/root/ChainCoin/depends/x86_64-w64-mingw32/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -D_FILE_OFFSET_BITS=64
+    CXX           = /root/ChainCoin/depends/x86_64-w64-mingw32/share/../native/bin/ccache x86_64-w64-mingw32-g++ -std=c++11
+    CXXFLAGS      = -pipe -O2
+    LDFLAGS       = -L/root/ChainCoin/depends/x86_64-w64-mingw32/share/../lib
+    ARFLAGS       = cr
+
+
+
 
 **********
 

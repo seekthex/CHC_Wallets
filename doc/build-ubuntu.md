@@ -48,7 +48,7 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
   curl https://raw.githubusercontent.com/seekthex/Server_Setup_Scripts/master/install-1-swap-p.sh | bash
 
   Note: if you are running a smaller VPS such as a Vultr 512 MB server you will need to install a 2 Gig Swap
-        during the inital compilie of chaincoin. however to run chaincoind you will only need a 1 Gig Swap file
+        during the initial compile of chaincoin. however to run chaincoind you will only need a 1 Gig Swap file
         on the 512 MB server.
         You can find more swap file building scripts here.
         https://github.com/seekthex/server_setup_scripts/blob/master/README.md
@@ -59,6 +59,9 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
 
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/build-tchc-Ub16.sh | bash
+
+
+
 
 **********
 
