@@ -66,7 +66,7 @@ build_chc_wallet() {
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
 	echo "rpcuser=123" >> chaincoin.conf
-	echo "rpcpassword=123" >> chaincoin.conf
+	echo "rpcpassword=1234" >> chaincoin.conf
 	echo "rpcport=21995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
 	echo "addnode=140.82.42.182" >> chaincoin.conf
