@@ -15,7 +15,7 @@ message() {
 }
 
 build_chc_wallet() {
-
+	message "Removing the old ChainCoin"
 	cd ~
 	sudo rm -r ChainCoin
 	message "Download and building Chaincoin"
