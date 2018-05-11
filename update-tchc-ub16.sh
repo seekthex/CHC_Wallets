@@ -18,6 +18,14 @@ build_chc_wallet() {
 	message "Removing the old ChainCoin"
 	cd ~
 	sudo rm -r ChainCoin
+	
+	message "Installing Berkley Database..."
+	sudo apt-get install software-properties-common -y
+	sudo add-apt-repository ppa:bitcoin/bitcoin -y
+	sudo apt-get update
+	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+	message "Berkley Database Installed"
+	
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
 	cd ChainCoin
