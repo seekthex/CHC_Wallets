@@ -16,38 +16,8 @@ message() {
 
 build_chc_wallet() {
 
-	message "Installing pre-dependencies..."
-	sudo apt-get update
-	sudo apt-get install git
-	sudo apt-get install build-essential -y
-	sudo apt-get install libtool -y
-	sudo apt-get install autotools-dev -y
-	sudo apt-get install automake -y
-	sudo apt-get install autoconf -y
-	sudo apt-get install pkg-config -y
-	sudo apt-get install libssl-dev -y
-	sudo apt-get install libevent-dev -y
-	sudo apt-get install bsdmainutils -y
-	sudo apt-get install libboost-system-dev -y
-	sudo apt-get install libboost-filesystem-dev -y
-	sudo apt-get install libboost-chrono-dev -y
-	sudo apt-get install libboost-program-options-dev -y
-	sudo apt-get install libboost-test-dev -y
-	sudo apt-get install libboost-thread-dev -y
-	sudo apt-get install libminiupnpc-dev -y
-	sudo apt-get install libzmq3-dev -y
-	message "pre-dependencies installed."
-
-
-	message "Installing Berkley Database..."
-	sudo apt-get install software-properties-common -y
-	sudo add-apt-repository ppa:bitcoin/bitcoin -y
-	sudo apt-get update
-	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
-	message "Berkley Database Installed"
-
-
-
+	cd ~
+	sudo rm -r ChainCoin
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
 	cd ChainCoin
@@ -56,26 +26,7 @@ build_chc_wallet() {
 	make clean
 	make install
 	cd ~
-	mkdir .chaincoincore
-	cd .chaincoincore
-	touch chaincoin.conf
-	echo "daemon=1" >> chaincoin.conf
-	echo "listen=1" >> chaincoin.conf
-	echo "server=1" >> chaincoin.conf
-	echo "testnet=1" >> chaincoin.conf
-	echo "debug=1" >> chaincoin.conf
-	echo "prematurewitness=1" >> chaincoin.conf
-	echo "rpcuser=123" >> chaincoin.conf
-	echo "rpcpassword=1234" >> chaincoin.conf
-	echo "rpcport=21995" >> chaincoin.conf
-	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-	echo "addnode=140.82.42.182" >> chaincoin.conf
-	message "chaincoin has been built and configured"
-
 	message "Download and install the Sentinel..."
-	sudo apt-get update
-	sudo apt-get -y install python-virtualenv
-	sudo apt install virtualenv -y
 	cd ~
 	cd ChainCoin
 	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
@@ -89,7 +40,6 @@ build_chc_wallet() {
 	crontab mycron
 	rm mycron
 	message "Sentinel has beein installed and configured"
-
 	message "Launching Chaincoin"
 	chaincoind
 }
