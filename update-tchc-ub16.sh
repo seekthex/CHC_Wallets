@@ -18,6 +18,28 @@ build_chc_wallet() {
 	message "Removing the old ChainCoin"
 	cd ~
 	sudo rm -r ChainCoin
+	message "Checking pre-dependencies..."
+	sudo apt-get update
+	sudo apt-get install git
+	sudo apt-get install build-essential -y
+	sudo apt-get install libtool -y
+	sudo apt-get install autotools-dev -y
+	sudo apt-get install automake -y
+	sudo apt-get install autoconf -y
+	sudo apt-get install pkg-config -y
+	sudo apt-get install libssl-dev -y
+	sudo apt-get install libevent-dev -y
+	sudo apt-get install bsdmainutils -y
+	sudo apt-get install libboost-system-dev -y
+	sudo apt-get install libboost-filesystem-dev -y
+	sudo apt-get install libboost-chrono-dev -y
+	sudo apt-get install libboost-program-options-dev -y
+	sudo apt-get install libboost-test-dev -y
+	sudo apt-get install libboost-thread-dev -y
+	sudo apt-get install libminiupnpc-dev -y
+	sudo apt-get install libzmq3-dev -y
+	message "pre-dependencies installed."
+	
 	
 	message "Installing Berkley Database..."
 	sudo apt-get install software-properties-common -y
