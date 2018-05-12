@@ -19,7 +19,7 @@ build_chc_wallet() {
 	message "Installing pre-dependencies..."
 	sudo apt-get update
 	sudo apt upgrade -y
-	sudo apt-get install git
+	sudo apt-get install git -y
 	sudo apt-get install build-essential -y
 	sudo apt-get install libtool -y
 	sudo apt-get install autotools-dev -y
@@ -46,30 +46,11 @@ build_chc_wallet() {
 
 
 
-
-
-
-
-
-	message "preparing the chaincoin..."
+	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
 	cd ChainCoin
-	#make clean
 	./autogen.sh
-	sudo ./contrib/install_db4.sh berkeley48
-	export BDB_PREFIX='/db4'
-#	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
-./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
-
-
-
-
-
-	#message "Download and building Chaincoin"
-	#git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
-	#cd ChainCoin
-	#./autogen.sh
-	#./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 	make clean
 	make install
 	cd ~
