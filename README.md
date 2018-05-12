@@ -16,13 +16,14 @@ Experimental scripts, use at your own risk!!!
 
 
 ### Tested Systems:
+-Ubuntu 14.04
 -Ubuntu 16.04
 
 
 build-chc-Ub16.sh  
 --------------
 
-Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 16.04 with sentinel and pre-configured
+Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 14.04,16.04 with sentinel and pre-configured
 
 Usage:
 
@@ -59,13 +60,13 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
 
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/sh/build-tchc-ub16.sh | bash
-  
-  
-  
+
+
+
  ### Update Chaincoin -cli testnet wallet with Sentinel to the latest build
 
   This is script to update the Chaincoin - cli wallet to the latest build. To use shut down the chaincoind deamon (using the command chaincoin-cli stop) then run the following shell script.
-  
+
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/update-tchc-ub16.sh | bash
 
 **********

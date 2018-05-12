@@ -2,7 +2,7 @@
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
 #Chaincoin Testnet Version 0.16.x
-#Testing OS: Ubuntu 16.04
+#Testing OS: Ubuntu 14.04,16.04
 #TODO: everything
 #TODO:
 
@@ -17,8 +17,10 @@ message() {
 build_chc_wallet() {
 
 	message "Installing pre-dependencies..."
-	sudo apt-get update
-	sudo apt-get install git
+
+	sudo apt update -y
+	sudo apt upgrade -y
+	sudo apt-get install git -y
 	sudo apt-get install build-essential -y
 	sudo apt-get install libtool -y
 	sudo apt-get install autotools-dev -y
@@ -98,6 +100,7 @@ build_chc_wallet() {
 install() {
   build_chc_wallet
 }
+
 
 #main
 #default to --without-gui
