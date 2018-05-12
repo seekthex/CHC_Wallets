@@ -40,20 +40,10 @@ build_chc_wallet() {
 	message "pre-dependencies installed."
 
 
-	#sudo apt update -y
-	#sudo apt upgrade -y
-	#sudo apt-get install git -y
-	#sudo apt install curl -y
-	#sudo apt-get install build-essential -y
-	#sudo apt-get install libtool -y
-	#sudo apt-get install autotools-dev -y
-	#sudo apt-get install automake -y
-	#sudo apt-get install pkg-config -y
-	#sudo apt-get install libssl-dev -y
-	#sudo apt-get install libevent-dev -y
-	#sudo apt-get install bsdmainutils -y
-	#sudo apt-get install python3 -y
-
+  #added for 14.04 support
+	sudo apt install curl -y
+	sudo apt-get install python3 -y
+	####
 
 
 
