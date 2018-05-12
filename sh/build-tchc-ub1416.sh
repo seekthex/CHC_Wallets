@@ -43,25 +43,33 @@ build_chc_wallet() {
   #added for 14.04 support
 	sudo apt install curl -y
 	sudo apt-get install python3 -y
-	####
 
 
 
 
-	message "Installing Berkley Database..."
-	sudo apt-get install software-properties-common -y
-	sudo add-apt-repository ppa:bitcoin/bitcoin -y
-	sudo apt-get update
-	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
-	message "Berkley Database Installed"
 
 
 
-	message "Download and building Chaincoin"
+
+	message "preparing the chaincoin..."
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
 	cd ChainCoin
+	#make clean
 	./autogen.sh
-	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+	sudo ./contrib/install_db4.sh berkeley48
+	export BDB_PREFIX='/db4'
+#	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+
+
+
+
+
+	#message "Download and building Chaincoin"
+	#git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
+	#cd ChainCoin
+	#./autogen.sh
+	#./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 	make clean
 	make install
 	cd ~
