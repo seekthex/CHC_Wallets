@@ -2,7 +2,7 @@
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
 #Chaincoin Testnet Version 0.16.x
-#Testing OS: Ubuntu 16.04
+#Testing OS: Ubuntu 14.04,16.04
 #TODO: everything
 #TODO:
 
@@ -17,7 +17,8 @@ message() {
 build_chc_wallet() {
 
 	message "Installing pre-dependencies..."
-	sudo apt-get update
+
+	sudo apt update -y
 	sudo apt upgrade -y
 	sudo apt-get install git -y
 	sudo apt-get install build-essential -y
@@ -40,9 +41,12 @@ build_chc_wallet() {
 	message "pre-dependencies installed."
 
 
-  #added for 14.04 support
-	sudo apt install curl -y
-	sudo apt-get install python3 -y
+	message "Installing Berkley Database..."
+	sudo apt-get install software-properties-common -y
+	sudo add-apt-repository ppa:bitcoin/bitcoin -y
+	sudo apt-get update
+	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+	message "Berkley Database Installed"
 
 
 
@@ -96,6 +100,7 @@ build_chc_wallet() {
 install() {
   build_chc_wallet
 }
+
 
 #main
 #default to --without-gui
