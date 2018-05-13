@@ -87,7 +87,7 @@ build_chc_wallet() {
 	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 	crontab -l >> mycron
-	echo "* * * * * cd /root/Chaincoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
+	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
 	crontab mycron
 	rm mycron
 	message "Sentinel has beein installed and configured"
