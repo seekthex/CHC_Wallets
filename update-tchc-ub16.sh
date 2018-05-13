@@ -1,8 +1,8 @@
 #!/bin/sh
 #Version 0.0.0.1
-#Info: Installs Chaincoind on clean Unbuntu OS version 16.04
+#Info: Updates Chaincoind for testent on Unbuntu OS
 #Chaincoin Testnet Version 0.16.x
-#Testing OS: Ubuntu 16.04
+#Tested OS: Ubuntu 14.04 16.04
 #TODO: everything
 #TODO:
 
