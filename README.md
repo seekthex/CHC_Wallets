@@ -65,26 +65,45 @@ Configuration: Below is the list of how this installation was configured
   
 Options used to compile and link:
 
+
   with wallet   = yes
+
   with gui / qt = no
+
   with zmq      = yes
+
   with test     = no
+
   with bench    = yes
+
   with upnp     = yes
+
   use asm       = yes
+
   debug enabled = no
+
   werror        = no
 
+
   target os     = linux
+
   build os      =
+
   CC            = gcc
+
   CFLAGS        = -g -O2
+
   CPPFLAGS      = -fPIC -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
+
   CXX           = g++ -std=c++11
+
   CXXFLAGS      = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wno-unu sed-parameter
+
   LDFLAGS       =
+
   ARFLAGS       = cr
-  
+
+
   Usage:
   
   On a brand new VPS server signed in as root, copy and paste the following line(s) and press ENTER  
