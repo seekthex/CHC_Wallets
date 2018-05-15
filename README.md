@@ -69,7 +69,10 @@ On a brand new VPS server copy and paste the following line(s) and press ENTER
 
   curl https://raw.githubusercontent.com/seekthex/create_chc_testnet/master/update-tchc-ub16.sh | bash
 
-**********
+### Chaincoin-qt-exe
+
+  If you need a Windows 64-bit Chaincoin-qt.exe desktop wallet go here.
+  https://github.com/seekthex/create_chc_testnet/blob/master/doc/build-windows.md   
 
 Donations:
 
