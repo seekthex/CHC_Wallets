@@ -64,6 +64,7 @@ Description: Creates a .16 CHC "cli" testnet wallet on Ubuntu 14.04,16.04 with s
 Configuration: Below is the list of how this installation was configured 
   
 Options used to compile and link:
+
   with wallet   = yes
   with gui / qt = no
   with zmq      = yes
@@ -76,7 +77,6 @@ Options used to compile and link:
 
   target os     = linux
   build os      =
-
   CC            = gcc
   CFLAGS        = -g -O2
   CPPFLAGS      = -fPIC -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
