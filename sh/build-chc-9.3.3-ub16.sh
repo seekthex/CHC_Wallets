@@ -42,7 +42,7 @@ build_chc_wallet() {
 	make 
 	sudo make install
 	message "Launching Chaincoin"
-	chaincoind
+	#chaincoind
 }
 
 
