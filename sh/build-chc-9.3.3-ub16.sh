@@ -36,16 +36,13 @@ build_chc_wallet() {
 
 	message "Download and building Chaincoin"
 	git clone https://github.com/chaincoin-legacy/chaincoin.git 
-#	cd chaincoin
-#	./autogen.sh
-#	./configure --without-gui
-
-#	make 
-#	sudo make install
-	
-
-#	message "Launching Chaincoin"
-	
+	cd chaincoin
+	./autogen.sh
+	./configure --without-gui
+	make 
+	sudo make install
+	message "Launching Chaincoin"
+	chaincoind
 }
 
 
