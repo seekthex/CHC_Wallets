@@ -7,6 +7,11 @@
 #TODO:
 
 
+#satus, not working yet I think, but need to try it!
+
+
+
+
 message() {
 
 	echo "╒════════════════════════════════════════════════════════>>>"
