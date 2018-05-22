@@ -38,7 +38,8 @@ build_chc_wallet() {
 	git clone https://github.com/chaincoin-legacy/chaincoin.git 
 #	cd chaincoin
 #	./autogen.sh
-#	./configure 
+#	./configure --without-gui
+
 #	make 
 #	sudo make install
 	
