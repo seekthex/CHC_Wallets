@@ -49,7 +49,7 @@ build_chc_wallet() {
 	message "Berkley Database Installed"
 	
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev
+	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
 	cd ChainCoin
 	./autogen.sh
 	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
