@@ -86,6 +86,7 @@ build_chc_wallet() {
 	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
 	virtualenv ./venv
 	./venv/bin/pip install -r requirements.txt
+	rm -rf venv && virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
 	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
 	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
