@@ -67,17 +67,19 @@ build_chc_wallet() {
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 
 	message "Sentinel has beein installed and configured"
-	message "Check to see mncache.dat was removed from testnet4 and chaincoin.conf was modified correctly"
+	
 	cd ~
-	cd ChainCoin
+	cd .chaincoincore
 	cd testnet4
 	rm mncache.dat 
 	cd ~
-	cd ChainCoin
+	cd .chaincoincore
 	echo "addresstype=p2sh-segwit" >> chaincoin.conf
 	echo "changetype=p2sh-segwit" >> chaincoin.conf
-	chaincoind
-	
+	#chaincoind
+	message "Check to see mncache.dat was removed from testnet4"
+	message "Check to see chaincoin.conf was modified correctly"
+	message "chaincoind was not for you launched this time"
 	
 }
 
