@@ -77,11 +77,8 @@ build_chc_wallet() {
 	cd .chaincoincore
 	echo "addresstype=p2sh-segwit" >> chaincoin.conf
 	echo "changetype=p2sh-segwit" >> chaincoin.conf
-	#chaincoind
-	message "Check to see mncache.dat was removed from testnet4"
-	message "Check to see chaincoin.conf was modified correctly"
-	message "chaincoind was not for you launched this time"
-	
+	chaincoind
+		
 }
 
 
