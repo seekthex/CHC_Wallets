@@ -67,7 +67,7 @@ build_chc_wallet() {
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 
 	message "Sentinel has beein installed and configured"
-	message "Read Messages"
+	message "Check to see mncache.dat was removed from testnet4 and chaincoin.conf was modified correctly"
 	cd ~
 	cd ChainCoin
 	cd testnet4
