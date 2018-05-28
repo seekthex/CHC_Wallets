@@ -67,6 +67,8 @@ build_chc_wallet() {
 	echo "testnet=1" >> chaincoin.conf
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
+	echo "addresstype=p2sh-segwit" >> chaincoin.conf
+	echo "changetype=p2sh-segwit" >> chaincoin.conf
 	echo "rpcuser=123" >> chaincoin.conf
 	echo "rpcpassword=1234" >> chaincoin.conf
 	echo "rpcport=21995" >> chaincoin.conf
