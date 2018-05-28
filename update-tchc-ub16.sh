@@ -74,7 +74,9 @@ build_chc_wallet() {
 	rm mncache.dat 
 	cd ~
 	cd ChainCoin
-	#chaincoind
+	echo "addresstype=p2sh-segwit" >> chaincoin.conf
+	echo "changetype=p2sh-segwit" >> chaincoin.conf
+	chaincoind
 	
 	
 }
