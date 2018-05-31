@@ -84,6 +84,6 @@ Donations:
 
 Bitcoin:
 
-Chaincoin:
+Chaincoin: CYFSSCHNtLj1pDhPEWK9KP5gnHQqohNEfh
 
 Many thanks to the CHC Community
