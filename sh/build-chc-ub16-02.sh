@@ -94,16 +94,24 @@ build_chc_wallet() {
 	message "Launching Chaincoin"
 	chaincoind
 }
+
+
+
+
+
 install() {
   build_chc_wallet
 }
 #main
 #default to --without-gui
 #install --without-gui
+
+
+
+
+
+
+
+
+
 install
-
-
-
-
-
-gksdhfkasdjhfskfdh
