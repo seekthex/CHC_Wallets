@@ -64,6 +64,7 @@ build_chc_wallet() {
 	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
+	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
 	echo "addnode=78.47.108.196:11996" >> chaincoin.conf
 
