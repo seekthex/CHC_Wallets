@@ -62,15 +62,16 @@ build_chc_wallet() {
 	cd .chaincoincore
 	touch chaincoin.conf
 	echo "daemon=1" >> chaincoin.conf
-	echo "listen=1" >> chaincoin.conf
+	echo "listen=0" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
 
 
 	echo "rpcuser=123" >> chaincoin.conf
 	echo "rpcpassword=1234" >> chaincoin.conf
-	echo "rpcport=21995" >> chaincoin.conf
+	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-
+	echo "addnode=78.47.108.196:11996 >> chaincoin.conf
+	
 	message "chaincoin has been built and configured"
 
 	message "Download and install the Sentinel..."
