@@ -66,6 +66,7 @@ build_chc_wallet() {
 	echo "server=1" >> chaincoin.conf
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
+	echo "addnode=78.47.108.196:11996" >> chaincoin.conf
 
 #echo "addresstype=p2sh-segwit" >> chaincoin.conf
 #echo "changetype=p2sh-segwit" >> chaincoin.conf
