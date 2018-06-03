@@ -44,7 +44,7 @@ build_chc_wallet() {
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get update
 	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
-}
+
 
 
 
