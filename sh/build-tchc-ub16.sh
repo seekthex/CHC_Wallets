@@ -64,14 +64,14 @@ build_chc_wallet() {
 	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
-	echo "testnet=1" >> chaincoin.conf
-	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
-	echo "addresstype=p2sh-segwit" >> chaincoin.conf
-	echo "changetype=p2sh-segwit" >> chaincoin.conf
+	echo "addnode=78.47.108.196:11996" >> chaincoin.conf
+
+#echo "addresstype=p2sh-segwit" >> chaincoin.conf
+#echo "changetype=p2sh-segwit" >> chaincoin.conf
 	echo "rpcuser=123" >> chaincoin.conf
 	echo "rpcpassword=1234" >> chaincoin.conf
-	echo "rpcport=21995" >> chaincoin.conf
+	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
 	echo "addnode=207.246.88.75" >> chaincoin.conf
 	echo "addnode=140.82.42.182" >> chaincoin.conf
@@ -87,8 +87,6 @@ build_chc_wallet() {
 	virtualenv ./venv
 	./venv/bin/pip install -r requirements.txt
 	rm -rf venv && virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
-	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
-	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 	crontab -l >> mycron
 	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
