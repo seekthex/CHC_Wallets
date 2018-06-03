@@ -62,7 +62,7 @@ build_chc_wallet() {
 	cd .chaincoincore
 	touch chaincoin.conf
 	echo "daemon=1" >> chaincoin.conf
-	echo "listen=0" >> chaincoin.conf
+	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
