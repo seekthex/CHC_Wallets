@@ -101,3 +101,9 @@ install() {
 #default to --without-gui
 #install --without-gui
 install
+
+
+
+
+
+gksdhfkasdjhfskfdh
