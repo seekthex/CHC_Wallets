@@ -51,11 +51,11 @@ build_chc_wallet() {
 	message "Download and building Chaincoin"
 	git clone https://github.com/chaincoin-legacy/chaincoin.git 
 	cd chaincoin
-	./autogen.sh
-	./configure --without-gui
-	make 
-	make install
-	message "Chaincoin Ready to Launch"
+	#./autogen.sh
+	#./configure --without-gui
+	#make 
+	#make install
+	message "JB Fix the code and continue"
 	#chaincoind
 }
 
