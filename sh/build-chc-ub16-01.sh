@@ -62,9 +62,8 @@ build_chc_wallet() {
 	cd .chaincoincore
 	touch chaincoin.conf
 	echo "daemon=1" >> chaincoin.conf
-	echo "listen=1" >> chaincoin.conf
+	echo "listen=0" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
-	echo "testnet=1" >> chaincoin.conf
 	echo "debug=1" >> chaincoin.conf
 	echo "prematurewitness=1" >> chaincoin.conf
 	echo "addresstype=p2sh-segwit" >> chaincoin.conf
@@ -87,8 +86,6 @@ build_chc_wallet() {
 	virtualenv ./venv
 	./venv/bin/pip install -r requirements.txt
 	rm -rf venv && virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
-	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
-	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 	crontab -l >> mycron
 	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
