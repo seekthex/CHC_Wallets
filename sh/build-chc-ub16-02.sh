@@ -68,21 +68,39 @@ build_chc_wallet() {
 
 	echo "rpcuser=123" >> chaincoin.conf
 	echo "rpcpassword=1234" >> chaincoin.conf
-	echo "rpcport=21995" >> chaincoin.conf
+	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-
+	echo "addnode=78.47.108.196:11996 >> chaincoin.conf
+	
 	message "chaincoin has been built and configured"
-
-
+	message "Download and install the Sentinel..."
+	sudo apt-get update
+	sudo apt-get -y install python-virtualenv
+	sudo apt install virtualenv -y
+	cd ~
+	cd ChainCoin
+	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
+	virtualenv ./venv
+	./venv/bin/pip install -r requirements.txt
+	rm -rf venv && virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
+	sed -i 's/network=mainnet/#network=mainnet/g' sentinel.conf
+	sed -i 's/#network=testnet/network=testnet/g' sentinel.conf
+	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
+	crontab -l >> mycron
+	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
+	crontab mycron
+	rm mycron
+	message "Sentinel has beein installed and configured"
 	message "Launching Chaincoin"
 	chaincoind
 }
-
-
 install() {
   build_chc_wallet
 }
-
+#main
+#default to --without-gui
+#install --without-gui
+install
 
 #main
 #default to --without-gui
