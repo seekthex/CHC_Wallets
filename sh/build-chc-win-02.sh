@@ -73,7 +73,7 @@ installdepends(){
 
 makechaincoin() {
 	message "preparing the chaincoin..."
-	git clone https://github.com/ChainCoin/ChainCoin.git 
+	git clone https://github.com/seekthex/ChainCoin.git 
 	cd ChainCoin
 	make clean
 	./autogen.sh
