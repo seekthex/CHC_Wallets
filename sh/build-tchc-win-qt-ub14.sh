@@ -86,6 +86,7 @@ makechaincoinqt() {
 	cd depends
 	make HOST=x86_64-w64-mingw32
 	cd ..
+	cp src/qt/res/icons/chaincoin.ico src/qt/res/icons/bitcoin.ico
 	CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-tests
 	sudo make
 	sudo make install
