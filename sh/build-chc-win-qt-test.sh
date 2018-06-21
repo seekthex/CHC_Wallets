@@ -73,7 +73,7 @@ installdepends(){
 
 makechaincoin() {
 	message "preparing the chaincoin..."
-	git clone https://github.com/seekthex/ChainCoin.git 
+	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
 	cd ChainCoin
 	make clean
 	./autogen.sh
@@ -88,7 +88,7 @@ makechaincoinqt() {
 	cd depends
 	make HOST=x86_64-w64-mingw32
 	cd ..
-  #cp src/qt/res/icons/chaincoin.ico src/qt/res/icons/bitcoin.ico
+  cp src/qt/res/icons/chaincoin.ico src/qt/res/icons/bitcoin.ico
 	CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-tests
 	sudo make
 	sudo make install
