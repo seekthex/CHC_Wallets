@@ -75,17 +75,18 @@ makechaincoin() {
 	message "preparing the chaincoin..."
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
 	cd ChainCoin
-	make clean
-	make dist-clean
+
 	./autogen.sh
 #	sudo ./contrib/install_db4.sh berkeley48
 #	export BDB_PREFIX='/db4'
 #	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
 
         ./configure CPPFLAGS=-fPIC
-
-
         #./configure CPPFLAGS=-fPIC  --disable-tests
+	make clean
+	make dist-clean
+	
+
 	
 	
 }
