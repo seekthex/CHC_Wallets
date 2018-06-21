@@ -1,7 +1,7 @@
 #!/bin/sh
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
-#Chaincoin Version 0.16.x (deb branch)
+#Chaincoin Version 0.16.x (dev branch)
 #Testing OS: Ubuntu 14.04,16.04
 #TODO: everything
 #TODO:
