@@ -1,7 +1,7 @@
 #!/bin/sh
 #Version 0.0.0.1
-#Info: Create Chaincoin-qt.exe
-#Chaincoin Testnet Version 0.16.x
+#Info: Create Chaincoin-qt.exe (from master branch)
+#Chaincoin Mainnet Version 0.16.x
 #Testing OS: Ubuntu 14.04
 #Note Only works with Ubuntu 14.04
 #TODO: testing...
@@ -34,7 +34,6 @@ installdepends(){
 	sudo apt-get install bsdmainutils -y
 	sudo apt-get install python3 -y
 
-
 	# Boost C macros - Bitcoin core trying to remove this
 	sudo apt-get install libboost-filesystem-dev -y
 	sudo apt-get install libboost-system-dev -y
@@ -43,7 +42,7 @@ installdepends(){
 	sudo apt-get install libboost-test-dev -y
 	sudo apt-get install libboost-thread-dev -y
 
-	# Berkeley Db - Some duplication - script is used later
+	# Berkeley Db 
 	sudo apt-get install software-properties-common -y
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get update -y
@@ -63,32 +62,22 @@ installdepends(){
 	sudo apt-get install qttools5-dev-tools
 	sudo apt-get install libprotobuf-dev
 	sudo apt-get install protobuf-compiler -y
+	
 	# QR
 	sudo apt-get install libqrencode-dev -y
+	
 	# cross compilation toolchain
 	sudo apt install g++-mingw-w64-x86-64 -y
 }
 
-
-
 makechaincoin() {
 	message "preparing the chaincoin..."
-	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
-
 	./autogen.sh
-#	sudo ./contrib/install_db4.sh berkeley48
-#	export BDB_PREFIX='/db4'
-#	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
-
         ./configure CPPFLAGS=-fPIC
-        #./configure CPPFLAGS=-fPIC  --disable-tests
-	make clean
+ 	make clean
 	make dist-clean
-	
-
-	
-	
 }
 
 makechaincoinqt() {
@@ -106,8 +95,8 @@ install() {
 	installdepends
 	makechaincoin
 	makechaincoinqt
-  message "Your Chaincoin QT wallet is ready"
-  message "Location:  ~/ChainCoin/src/qt/chaincoin-qt.exe"
+  	message "Your Chaincoin QT wallet is ready"
+  	message "Location:  ~/ChainCoin/src/qt/chaincoin-qt.exe"
 }
 
 #main
