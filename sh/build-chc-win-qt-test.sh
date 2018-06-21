@@ -76,10 +76,18 @@ makechaincoin() {
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
 	cd ChainCoin
 	make clean
+	make dist-clean
 	./autogen.sh
-	sudo ./contrib/install_db4.sh berkeley48
-	export BDB_PREFIX='/db4'
-	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+#	sudo ./contrib/install_db4.sh berkeley48
+#	export BDB_PREFIX='/db4'
+#	./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+
+        ./configure CPPFLAGS=-fPIC
+
+
+        #./configure CPPFLAGS=-fPIC  --disable-tests
+	
+	
 }
 
 makechaincoinqt() {
@@ -88,7 +96,6 @@ makechaincoinqt() {
 	cd depends
 	make HOST=x86_64-w64-mingw32
 	cd ..
-  cp src/qt/res/icons/chaincoin.ico src/qt/res/icons/bitcoin.ico
 	CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/ --disable-tests
 	sudo make
 	sudo make install
