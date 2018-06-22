@@ -54,9 +54,8 @@ build_chc() {
 	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
-	./configure CPPFLAGS="-fPIC" 
+	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 	make clean
-	make dist-clean
 	make install
 	cd ~
 	mkdir .chaincoincore
