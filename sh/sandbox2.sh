@@ -51,26 +51,27 @@ build_chc() {
 
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git 
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
-	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+	./configure CPPFLAGS="-fPIC" 
 	make clean
+	make dist-clean
 	make install
 	cd ~
-	#mkdir .chaincoincore
-	#cd .chaincoincore
-	#touch chaincoin.conf
-	#echo "daemon=1" >> chaincoin.conf
-	#echo "listen=1" >> chaincoin.conf
-	#echo "server=1" >> chaincoin.conf
-	#echo "prematurewitness=1" >> chaincoin.conf
-#echo "addresstype=p2sh-segwit" >> chaincoin.conf
-#echo "changetype=p2sh-segwit" >> chaincoin.conf
-	#echo "rpcuser=chcuser" >> chaincoin.conf
-	#echo "rpcpassword=chcpassword" >> chaincoin.conf
-	#echo "rpcport=11995" >> chaincoin.conf
-	#echo "rpcallowip=127.0.0.1" >> chaincoin.conf
+	mkdir .chaincoincore
+	cd .chaincoincore
+	touch chaincoin.conf
+	echo "daemon=1" >> chaincoin.conf
+	echo "listen=1" >> chaincoin.conf
+	echo "server=1" >> chaincoin.conf
+	
+
+	echo "rpcuser=chcuser" >> chaincoin.conf
+	echo "rpcpassword=chcpassword" >> chaincoin.conf
+	echo "rpcport=11995" >> chaincoin.conf
+	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
+	
 	message "chaincoin has been built and configured"
 	message "Download and install the Sentinel..."
 	sudo apt-get update
@@ -83,9 +84,9 @@ build_chc() {
 	virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 	crontab -l >> mycron
-	#echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
-	#crontab mycron
-	#rm mycron
+	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
+	crontab mycron
+	rm mycron
 	message "Sentinel has beein installed and configured"
 	message "Launching Chaincoin"
 	chaincoind
