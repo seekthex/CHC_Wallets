@@ -39,15 +39,15 @@ build_chc_wallet() {
 	sudo apt-get install libminiupnpc-dev -y
 	sudo apt-get install libzmq3-dev -y
 	message "pre-dependencies installed."
-	
-	
+
+
 	message "Installing Berkley Database..."
 	sudo apt-get install software-properties-common -y
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get update
 	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 	message "Berkley Database Installed"
-	
+
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
 	cd ChainCoin
@@ -68,17 +68,17 @@ build_chc_wallet() {
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 
 	message "Sentinel has beein installed and configured"
-	
+
 	cd ~
 	cd .chaincoincore
 	cd testnet4
-	rm mncache.dat 
+	rm mncache.dat
 	cd ~
 	cd .chaincoincore
 	echo "addresstype=p2sh-segwit" >> chaincoin.conf
 	echo "changetype=p2sh-segwit" >> chaincoin.conf
 	chaincoind
-		
+
 }
 
 

@@ -42,7 +42,7 @@ installdepends(){
 	sudo apt-get install libboost-test-dev -y
 	sudo apt-get install libboost-thread-dev -y
 
-	# Berkeley Db 
+	# Berkeley Db
 	sudo apt-get install software-properties-common -y
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get update -y
@@ -62,10 +62,10 @@ installdepends(){
 	sudo apt-get install qttools5-dev-tools
 	sudo apt-get install libprotobuf-dev
 	sudo apt-get install protobuf-compiler -y
-	
+
 	# QR
 	sudo apt-get install libqrencode-dev -y
-	
+
 	# cross compilation toolchain
 	sudo apt install g++-mingw-w64-x86-64 -y
 }

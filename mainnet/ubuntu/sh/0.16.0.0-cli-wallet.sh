@@ -64,13 +64,13 @@ build_chc() {
 	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
-	
+
 
 	echo "rpcuser=chcuser" >> chaincoin.conf
 	echo "rpcpassword=chcpassword" >> chaincoin.conf
 	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-	
+
 	message "chaincoin has been built and configured"
 	message "Download and install the Sentinel..."
 	sudo apt-get update
