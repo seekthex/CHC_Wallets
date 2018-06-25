@@ -1,6 +1,6 @@
 #!/bin/sh
 #Version 0.0.0.1
-#Info: haincoind on clean Unbuntu OS version 16.04
+#Info: build chaincoind on clean Unbuntu OS version 16.04
 #Chaincoin Version 0.9.3.3
 #Testing OS: Ubuntu 14.04,16.04
 #TODO: everything
@@ -36,7 +36,7 @@ build_chc_wallet() {
 	#sudo apt-get install g++ -y
 	#sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	#sudo apt-get update
-	#sudo apt-get install libdb4.8-dev libdb4.8++-dev -y 
+	#sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 
 
 	sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
@@ -49,11 +49,11 @@ build_chc_wallet() {
 
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/chaincoin-legacy/chaincoin.git 
+	git clone https://github.com/chaincoin-legacy/chaincoin.git
 	cd chaincoin
 	#./autogen.sh
 	#./configure --without-gui
-	#make 
+	#make
 	#make install
 	message "JB Fix the code and continue"
 	#chaincoind
