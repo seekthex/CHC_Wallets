@@ -40,15 +40,12 @@ build_chc() {
 	sudo apt-get install libzmq3-dev -y
 	message "pre-dependencies installed."
 
-
 	message "Installing Berkley Database..."
 	sudo apt-get install software-properties-common -y
 	sudo add-apt-repository ppa:bitcoin/bitcoin -y
 	sudo apt-get update
 	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 	message "Berkley Database Installed"
-
-
 
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
@@ -64,33 +61,30 @@ build_chc() {
 	echo "daemon=1" >> chaincoin.conf
 	echo "listen=1" >> chaincoin.conf
 	echo "server=1" >> chaincoin.conf
-
-
 	echo "rpcuser=chcuser" >> chaincoin.conf
 	echo "rpcpassword=chcpassword" >> chaincoin.conf
 	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-
 	message "chaincoin has been built and configured"
+
 	message "Download and install the Sentinel..."
 	sudo apt-get update
 	sudo apt-get -y install python-virtualenv
 	sudo apt install virtualenv -y
 	cd ~
-	cd ChainCoin
 	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
 	virtualenv ./venv
 	virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
 	echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
 	crontab -l >> mycron
-	echo "* * * * * cd /root/ChainCoin/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
+	echo "* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
 	crontab mycron
 	rm mycron
 	message "Sentinel has beein installed and configured"
 	message "Launching Chaincoin"
+
 	chaincoind
 }
-
 
 install() {
   build_chc
