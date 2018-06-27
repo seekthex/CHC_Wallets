@@ -52,7 +52,11 @@ sudo apt-get install libssl1.0-dev
 	#sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 
 	cd ~
-	mkdir bitcoin/db4/
+	mkdir bitcoin
+  cd bitcoin
+	mkdir db4
+	cd db4
+
 	wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
 	tar -xzvf db-4.8.30.NC.tar.gz
 	cd db-4.8.30.NC/build_unix/
