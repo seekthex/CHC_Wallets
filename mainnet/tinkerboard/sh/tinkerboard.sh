@@ -18,7 +18,7 @@ build_chc() {
 
 	message "Installing pre-dependencies..."
 
-#	sudo apt update -y
+#sudo apt update -y
 #	sudo apt upgrade -y
 
 #	sudo apt-get install build-essential -y
@@ -30,7 +30,7 @@ build_chc() {
 	#sudo apt-get install libssl-dev -y
 
 
-#sudo apt-get remove libssl-dev -y
+sudo apt-get remove libssl-dev -y
 #sudo apt-get install libssl1.0-dev
 
 #	sudo apt-get install libevent-dev -y
@@ -72,8 +72,11 @@ build_chc() {
 	cd ChainCoin
 	./autogen.sh
 #./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
-./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests --without-gui
-	make 
+./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+
+
+./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+	make
 	make install
 #	cd ~
 #	mkdir .chaincoincore
