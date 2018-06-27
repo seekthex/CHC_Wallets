@@ -76,6 +76,14 @@ Description: Creates a .16 CHC "cli"  wallet on Ubuntu 14.04,16.04 with pre-conf
   For Tesetnet Builds
   --------------
 
+    If you need a Ubuntu cli wallet for testnet go here.
+
+    https://github.com/seekthex/CHC_Wallets/blob/master/testnet/ubuntu/docs/0.16.0.0-qt-win64bit-wallet.md  
+
+    If you need a Windows 64-bit Chaincoin-qt.exe desktop wallet for testnet go here.
+
+    https://github.com/seekthex/CHC_Wallets/blob/master/testnet/ubuntu/docs/0.16.0.0-cli-wallet.md   
+
 
 
 Donations:
