@@ -46,17 +46,29 @@ sudo apt-get install libssl1.0-dev
 	message "pre-dependencies installed."
 
 	message "Installing Berkley Database..."
-	sudo apt-get install software-properties-common -y
-	sudo add-apt-repository ppa:bitcoin/bitcoin -y
-	sudo apt-get update
-	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+	#sudo apt-get install software-properties-common -y
+	#sudo add-apt-repository ppa:bitcoin/bitcoin -y
+	#sudo apt-get update
+	#sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+
+	cd ~
+	mkdir bitcoin/db4/
+	wget 'http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz'
+	tar -xzvf db-4.8.30.NC.tar.gz
+	cd db-4.8.30.NC/build_unix/
+	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=/home/theusername/bitcoin/db4/
+
+	make install
+
+
 	message "Berkley Database Installed"
 
 	message "Download and building Chaincoin"
 	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
-	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+#./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
 	make clean
 	make install
 #	cd ~
