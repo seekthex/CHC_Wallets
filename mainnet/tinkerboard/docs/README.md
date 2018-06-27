@@ -1,5 +1,7 @@
 still under construction
 
+do not run script
+
 notes
 
 sudo usermod root -p password
