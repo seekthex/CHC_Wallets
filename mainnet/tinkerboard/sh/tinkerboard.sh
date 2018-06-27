@@ -30,7 +30,7 @@ build_chc() {
 	#sudo apt-get install libssl-dev -y
 
 
-sudo apt-get remove libssl-dev -y
+#sudo apt-get remove libssl-dev -y
 sudo apt-get install libssl1.0-dev
 
 	sudo apt-get install libevent-dev -y
@@ -52,13 +52,13 @@ sudo apt-get install libssl1.0-dev
 	sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
 	message "Berkley Database Installed"
 
-#	message "Download and building Chaincoin"
-#	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
-#	cd ChainCoin
-#	./autogen.sh
-#	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
-#	make clean
-#	make install
+	message "Download and building Chaincoin"
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
+	cd ChainCoin
+	./autogen.sh
+	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+	make clean
+	make install
 #	cd ~
 #	mkdir .chaincoincore
 #	cd .chaincoincore
