@@ -18,8 +18,9 @@ build_chc() {
 
 	message "Installing pre-dependencies..."
 
+
 #sudo apt update -y
-#	sudo apt upgrade -y
+#sudo apt upgrade -y
 
 #	sudo apt-get install build-essential -y
 #	sudo apt-get install libtool -y
@@ -31,8 +32,9 @@ build_chc() {
 
 
 sudo apt-get remove libssl-dev -y
-#sudo apt-get install libssl1.0-dev
 
+sudo apt-get install libssl1.0-dev
+sudo apt install
 #	sudo apt-get install libevent-dev -y
 #	sudo apt-get install bsdmainutils -y
 #	sudo apt-get install libboost-system-dev -y
@@ -71,13 +73,13 @@ sudo apt-get remove libssl-dev -y
 	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
-#./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
-./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
+#./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
 
 
-./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
-	make
-	make install
+# ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
+#	make
+#	make install
 #	cd ~
 #	mkdir .chaincoincore
 #	cd .chaincoincore
