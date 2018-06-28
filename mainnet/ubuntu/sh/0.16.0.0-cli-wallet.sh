@@ -2,7 +2,7 @@
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
 #Chaincoin Version 0.16.x (master)(mainnet)
-#Tested OS: Ubuntu 14.04, 16.04, 17.04
+#Tested OS: Ubuntu 14.04, 16.04, 17.10 
 #TODO: everything
 #TODO:
 
