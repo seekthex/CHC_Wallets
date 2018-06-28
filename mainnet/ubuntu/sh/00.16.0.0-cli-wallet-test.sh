@@ -52,7 +52,6 @@ build_chc() {
 	cd ChainCoin
 	./autogen.sh
 	./configure
-	make clean
 	make install
 	cd ~
 	mkdir .chaincoincore
