@@ -57,17 +57,25 @@ Description: Creates a .16 CHC "cli"  wallet on Ubuntu 14.04,16.04 with pre-conf
 
 
 
-### Install Chaincoin -cli testnet wallet with Sentinel
+### Install Chaincoin -cli wallet with Sentinel
 
   Usage:
 
   On a brand new VPS server signed in as root, copy and paste the following line(s) and press ENTER  
 
+  For Ubuntu 14.04, 16.04, 17.10
+
   curl https://raw.githubusercontent.com/seekthex/CHC_Wallets/master/mainnet/ubuntu/sh/0.16.0.0-cli-wallet.sh | bash
+
+
+  For Ubuntu 18.04
+
+  curl https://raw.githubusercontent.com/seekthex/CHC_Wallets/master/mainnet/ubuntu/sh/0.16.0.0-cli-wallet-UB18.sh | bash
 
 
 
 ### Chaincoin-qt-exe
+
 
   If you need a Windows 64-bit Chaincoin-qt.exe desktop wallet go here.
   https://github.com/seekthex/CHC_Wallets/blob/master/mainnet/ubuntu/docs/0.16.0.0-qt-win64bit-wallet.md   
