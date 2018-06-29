@@ -19,4 +19,4 @@ su -
 curl https://raw.githubusercontent.com/seekthex/Server_Setup_Scripts/master/install-1-swap.sh | bash
 
 
-curl https://raw.githubusercontent.com/seekthex/CHC_Wallets/master/testnet/tinkerboard/sh/thinkerboard.sh | bash
+curl https://raw.githubusercontent.com/seekthex/CHC_Wallets/master/testnet/tinkerboard/sh/tinkerboard.sh | bash
