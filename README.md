@@ -72,7 +72,6 @@ Description: Creates a .16 CHC "cli"  wallet on Ubuntu 14.04,16.04 with pre-conf
   curl https://raw.githubusercontent.com/seekthex/CHC_Wallets/master/mainnet/ubuntu/sh/0.16.0.0-cli-wallet-UB18.sh | bash
 
 
-
 ### Chaincoin-qt-exe
 
 
