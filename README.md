@@ -14,8 +14,7 @@ Experimental scripts, use at your own risk!!!
 
 
 ### Tested Systems:
--Ubuntu 14.04
--Ubuntu 16.04
+-Ubuntu 14.04, 16.04, 17.10, 18.04
 
 
 For Mainnet Builds
