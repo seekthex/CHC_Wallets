@@ -58,7 +58,7 @@ build_chc() {
 
  message "Download and building Chaincoin"
  cd ~
- git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
+ git clone https://github.com/ChainCoin/ChainCoin.git -b 0.16 --single-branch
  cd ChainCoin
  ./autogen.sh
  sudo ./contrib/install_db4.sh berkeley48
