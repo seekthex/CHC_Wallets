@@ -48,7 +48,7 @@ build_chc() {
 	message "Berkley Database Installed"
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b .16 --single-branch
 	cd ChainCoin
 	./autogen.sh
 	./configure
@@ -68,7 +68,7 @@ build_chc() {
 
 	message "Download and install the Sentinel..."
 	sudo apt-get update
-	sudo apt install python2.7 python-pip 
+	sudo apt install python2.7 python-pip
 	sudo apt-get -y install python-virtualenv
 	sudo apt install virtualenv -y
 	cd ~

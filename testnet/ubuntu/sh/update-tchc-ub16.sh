@@ -1,7 +1,7 @@
 #!/bin/sh
 #Version 0.0.0.1
 #Info: Updates Chaincoind for testent on Unbuntu OS
-#Chaincoin Testnet Version 0.16.x
+#Chaincoin Testnet Version 0.16.99.0
 #Tested OS: Ubuntu 14.04 16.04
 #TODO: everything
 #TODO:
@@ -49,7 +49,7 @@ build_chc_wallet() {
 	message "Berkley Database Installed"
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
 	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui

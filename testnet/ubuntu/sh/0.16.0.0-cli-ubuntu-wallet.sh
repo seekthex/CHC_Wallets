@@ -1,7 +1,7 @@
 #!/bin/sh
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
-#Chaincoin Testnet Version 0.16.x
+#Chaincoin Testnet Version 0.16.99.0
 #Testing OS: Ubuntu 14.04,16.04
 #TODO: everything
 #TODO:
@@ -51,7 +51,7 @@ build_chc_wallet() {
 
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
 	./configure CPPFLAGS="-fPIC" --disable-tests --without-gui

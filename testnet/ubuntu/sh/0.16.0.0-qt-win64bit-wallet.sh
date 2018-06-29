@@ -1,7 +1,7 @@
 #!/bin/sh
 #Version 0.0.0.1
 #Info: Create Chaincoin-qt.exe
-#Chaincoin Testnet Version 0.16.x
+#Chaincoin Testnet Version 0.16.99.0
 #Testing OS: Ubuntu 14.04
 #Note Only works with Ubuntu 14.04
 #TODO: testing...
@@ -72,7 +72,7 @@ installdepends(){
 
 makechaincoin() {
 	message "preparing the chaincoin..."
-	git clone https://github.com/ChainCoin/ChainCoin.git -b Chaincoin_0.16-dev --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 	cd ChainCoin
 	./autogen.sh
         ./configure CPPFLAGS=-fPIC

@@ -2,7 +2,7 @@
 #Version 0.0.0.1
 #Info: Installs Chaincoind on clean Unbuntu OS version 16.04
 #Chaincoin Version 0.16.x (master)(mainnet)
-#Tested OS: Ubuntu 14.04, 16.04, 17.10 
+#Tested OS: Ubuntu 14.04, 16.04, 17.10
 #TODO: everything
 #TODO:
 
@@ -48,7 +48,7 @@ build_chc() {
 	message "Berkley Database Installed"
 
 	message "Download and building Chaincoin"
-	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
+	git clone https://github.com/ChainCoin/ChainCoin.git -b .16 --single-branch
 	cd ChainCoin
 	./autogen.sh
 	./configure
