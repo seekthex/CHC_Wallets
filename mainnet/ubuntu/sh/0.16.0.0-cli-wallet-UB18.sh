@@ -68,6 +68,7 @@ build_chc() {
 
 	message "Download and install the Sentinel..."
 	sudo apt-get update
+	sudo apt install python2.7 python-pip 
 	sudo apt-get -y install python-virtualenv
 	sudo apt install virtualenv -y
 	cd ~
