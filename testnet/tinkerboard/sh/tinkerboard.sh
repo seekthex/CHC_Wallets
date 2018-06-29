@@ -70,6 +70,11 @@ message "Berkley Database Installed"
 #	git clone https://github.com/ChainCoin/ChainCoin.git -b master --single-branch
 #	cd ChainCoin
 #	./autogen.sh
+
+sudo ./contrib/install_db4.sh berkeley48
+export BDB_PREFIX='/db4'
+
+
 #./configure CPPFLAGS="-fPIC" --disable-tests --without-gui
 #./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2 -fPIC" LDFLAGS="-L${BDB_PREFIX}/lib/" --disable-tests
 
