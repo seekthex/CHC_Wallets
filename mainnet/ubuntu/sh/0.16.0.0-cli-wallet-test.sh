@@ -65,7 +65,8 @@ build_chc() {
 	echo "rpcpassword=chcpassword" >> chaincoin.conf
 	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
-	echo "externalip=$mnip" >> chaincoin.conf
+	echo "externalip=" && $( ip a s eth0 | awk '/inet.*brd/ {print $2}' | awk -F'/' '{print $1}' ) >> chaincoin.conf
+	echo "masternodeprivkey=x" >> chaincoin.conf
 	echo "masternode=1" >> chaincoin.conf
 	message "chaincoin has been built and configured"
 
