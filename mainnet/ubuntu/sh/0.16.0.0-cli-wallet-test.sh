@@ -16,11 +16,7 @@ message() {
 
 build_chc() {
 
-  message " Thankyou for trying script"
 
-  echo "please enter your masternod private key to continue"
-
-	read privkey
 
 
 
@@ -56,7 +52,6 @@ build_chc() {
 	message "Berkley Database Installed"
 
 	message "Download and building Chaincoin"
-	mnip=$(curl -s https://api.ipify.org)
 	git clone https://github.com/ChainCoin/ChainCoin.git -b 0.16 --single-branch
 	cd ChainCoin
 	./autogen.sh
@@ -103,5 +98,9 @@ install() {
   build_chc
 }
 
+message " Thankyou for trying script"
 
+echo "please enter your masternod private key to continue"
+
+read privkey
 install
