@@ -98,7 +98,7 @@ install() {
   build_chc
 }
 
-#echo "please enter your masternod private key to continue"
+echo "please enter your masternod private key to continue"
 #read privkey
 
 install
