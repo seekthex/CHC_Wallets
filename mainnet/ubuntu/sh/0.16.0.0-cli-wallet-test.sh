@@ -16,6 +16,10 @@ message() {
 
 build_chc() {
 
+  message "type enter your masternernode genkey"
+
+	read privkey
+
 	message "Installing pre-dependencies..."
 
 	sudo apt update -y
@@ -66,8 +70,8 @@ build_chc() {
 	echo "rpcport=11995" >> chaincoin.conf
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
 	echo "externalip=" && $( ip a s eth0 | awk '/inet.*brd/ {print $2}' | awk -F'/' '{print $1}' ) >> chaincoin.conf
-	echo "masternodeprivkey=x" >> chaincoin.conf
-	echo "masternode=1" >> chaincoin.conf
+  echo "masternode=1" >> chaincoin.conf
+	echo "masternodeprivkey="$privkey >> chaincoin.conf
 	message "chaincoin has been built and configured"
 
 	message "Download and install the Sentinel..."
@@ -85,6 +89,8 @@ build_chc() {
 	rm mycron
 	message "Sentinel has beein installed and configured"
 	message "Launching Chaincoin"
+
+
 
 	chaincoind
 }
