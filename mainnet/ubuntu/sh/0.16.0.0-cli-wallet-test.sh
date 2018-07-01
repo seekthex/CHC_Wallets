@@ -17,7 +17,8 @@ message() {
 build_chc() {
 
 
-
+	echo "please enter your masternod private key to continue"
+	read pkey
 
 
 	message "Installing pre-dependencies..."
@@ -70,7 +71,7 @@ build_chc() {
 	echo "rpcallowip=127.0.0.1" >> chaincoin.conf
 	echo "externalip=" && $( ip a s eth0 | awk '/inet.*brd/ {print $2}' | awk -F'/' '{print $1}' ) >> chaincoin.conf
   echo "masternode=1" >> chaincoin.conf
-	echo "masternodeprivkey=$privkey" >> chaincoin.conf
+	echo "masternodeprivkey=$pkey" >> chaincoin.conf
 	message "chaincoin has been built and configured"
 
 	message "Download and install the Sentinel..."
@@ -98,7 +99,6 @@ install() {
   build_chc
 }
 
-echo "please enter your masternod private key to continue"
-#read privkey
+
 
 install
