@@ -16,9 +16,13 @@ message() {
 
 build_chc() {
 
-  message "type enter your masternernode genkey"
+  message " Thankyou for trying script"
+
+  echo "please enter your masternod private key to continue"
 
 	read privkey
+
+  
 
 	message "Installing pre-dependencies..."
 
@@ -100,7 +104,4 @@ install() {
 }
 
 
-#main
-#default to --without-gui
-#install --without-gui
 install
