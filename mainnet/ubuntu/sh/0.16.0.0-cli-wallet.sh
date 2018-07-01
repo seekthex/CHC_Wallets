@@ -80,9 +80,9 @@ build_chc() {
 	crontab mycron
 	rm mycron
 	message "Sentinel has beein installed and configured"
-	message "Launching Chaincoin"
+	message "ChainCoin has been Installed"
 
-	chaincoind
+	#chaincoind
 }
 
 install() {
