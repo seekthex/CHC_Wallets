@@ -75,7 +75,7 @@ makechaincoin() {
 	git clone https://github.com/ChainCoin/ChainCoin.git -b 0.16 --single-branch
 	cd ChainCoin
 	./autogen.sh
-        ./configure CPPFLAGS=-fPIC
+        ./configure
  	make clean
 	make dist-clean
 }
