@@ -1,10 +1,10 @@
 #!/bin/sh
 #Version 0.0.0.1
 #Info: Create Chaincoin-qt.exe (from master branch)
-#Chaincoin Mainnet Version 0.16.1.0
-#Testing OS: Ubuntu 18.04
-#Note Only works with Ubuntu 18.04
-#TODO: testing... this is abousolutly a test run....
+#Chaincoin Mainnet Version 0.16.0.0
+#Testing OS: Ubuntu 14.04
+#Note Only works with Ubuntu 14.04
+#TODO: testing...
 #TODO: ask community for improvement
 
 message() {
@@ -69,43 +69,43 @@ installdepends(){
 	# cross compilation toolchain
 	sudo apt install g++-mingw-w64-x86-64 -y
 
-
-  # Check for ubuntu 18.04 related dependencies .... since I am to lazy to look at above script
+	message "more dependencies"
+  sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git -y
 	sudo sudo apt-get install curl g++-aarch64-linux-gnu g++-4.8-aarch64-linux-gnu gcc-4.8-aarch64-linux-gnu binutils-aarch64-linux-gnu g++-arm-linux-gnueabihf g++-4.8-arm-linux-gnueabihf gcc-4.8-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-4.8-multilib gcc-4.8-multilib binutils-gold bsdmainutils -y
-	sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git -y
-  sudo apt install g++-mingw-w64-x86-64 -y
+	sudo apt install g++-mingw-w64-x86-64 -y
+	message "got the extra's lets give it a go!"
 
 }
 
 makechaincoin() {
 	message "preparing the chaincoin..."
-	git clone https://github.com/ChainCoin/ChainCoin.git -b 0.16 --single-branch ChainCoin
-	sudo chmod -R a+rw chaincoin
+	git clone https://github.com/ChainCoin/ChainCoin.git -b 0.16 --single-branch
+	sudo chmod -R a+rw ChainCoin
 	cd ChainCoin
 	./autogen.sh
-  ./configure
+	./configure
  	make clean
 	make dist-clean
 }
 
 makechaincoinqt() {
 	# build steps
+
 	PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH% imported var
 	cd depends
-	make HOST=x86_64-w64-mingw32
+	make HOST=i686-w64-mingw32
 	cd ..
 	./autogen.sh # not required when building from tarball
-	CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+	CONFIG_SITE=$PWD/depends/i686-w64-mingw32/share/config.site ./configure --prefix=/
 	sudo make
-  sudo make intall
 }
 
 install() {
 	installdepends
 	makechaincoin
 	makechaincoinqt
-  message "Your Chaincoin QT wallet is hopefully ready"
-  message "Location:  ~/ChainCoin/src/qt/chaincoin-qt.exe"
+  	message "Your Chaincoin QT wallet is ready"
+  	message "Location:  ~/ChainCoin/src/qt/chaincoin-qt.exe"
 }
 
 #main
