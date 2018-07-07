@@ -70,7 +70,7 @@ build_chc() {
 	sudo apt-get update
 	sudo apt install python2.7 python-pip
 	sudo apt-get -y install python-virtualenv
-	sudo apt install virtualenv -y
+	sudo apt install virtualenv -y #not needed in ubuntu 14.04 need to test other version
 	cd ~
 	git clone https://github.com/chaincoin/sentinel.git && cd sentinel
 	virtualenv ./venv
