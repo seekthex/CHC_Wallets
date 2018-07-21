@@ -16,6 +16,18 @@ message() {
 
 build_chc() {
 
+
+	message "Creating 1GB temporary swap file...this may take a few minutes..."
+	sudo dd if=/dev/zero of=/swapfile bs=1M count=1000
+	sudo mkswap /swapfile
+	sudo chown root:root /swapfile
+	sudo chmod 0600 /swapfile
+	sudo swapon /swapfile
+	sudo chmod 0600 /swapfile
+	sudo chown root:root /swapfile
+	message "1GB swap has been created"
+
+
  message "Installing pre-dependencies..."
  sudo apt update -y
  sudo apt upgrade -y
@@ -39,6 +51,10 @@ build_chc() {
  sudo apt-get install libminiupnpc-dev -y
  sudo apt-get install libzmq3-dev -y
  message "pre-dependencies installed."
+
+ message "Install Tinkerboard specific"
+ sudo apt-get install cron -y
+ message "Tinkerboard specifc intalled"
 
  message "Download and compile Berkley Database..."
  #sudo apt-get install software-properties-common -y
@@ -69,6 +85,11 @@ build_chc() {
  mkdir .chaincoincore
  cd .chaincoincore
  touch chaincoin.conf
+
+ touch debug.empty
+
+
+
  echo "daemon=1" >> chaincoin.conf
  echo "listen=1" >> chaincoin.conf
  echo "server=1" >> chaincoin.conf
@@ -87,10 +108,16 @@ build_chc() {
  virtualenv ./venv
  virtualenv ./venv && ./venv/bin/pip install -r requirements.txt
  echo "chaincoin_conf=/root/.chaincoincore/chaincoin.conf" >> sentinel.conf
- #	crontab -l >> mycron
+ crontab -l >> mycron
+
+
  echo "* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron
- #	crontab mycron
- #	rm mycron
+ echo "* * * * * cd /root/sentinel && cp debug.empty debug.log" >> mycron
+
+
+
+ crontab mycron
+ rm mycron
  message "Sentinel has beein installed and configured"
  message "Launching Chaincoin"
  chaincoind
@@ -99,7 +126,5 @@ build_chc() {
 install() {
 	build_chc
 }
-#main
-#default to --without-gui
-#install --without-gui
+
 install
